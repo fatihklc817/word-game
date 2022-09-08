@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e79f41d5a4cec4c865d9c4cfa138d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lrController: {fileID: 833232786}
+  _lrController: {fileID: 833232786}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,8 +731,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51eb0f6d0b70c0749ab4158b6485f5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LineRenderer: {fileID: 833232787}
+  IsClicking: 0
+  IsInputActive: 0
   wordManager: {fileID: 912718109}
-  lr: {fileID: 833232787}
 --- !u!120 &833232787
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -783,7 +785,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.2187469
+        value: 0.20408058
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -795,8 +797,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
-      key1: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
+      key0: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
+      key1: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -822,10 +824,10 @@ LineRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 6
+    numCornerVertices: 15
     numCapVertices: 0
     alignment: 1
-    textureMode: 0
+    textureMode: 1
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
@@ -873,7 +875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a938cac4ab122da409ac8138c1528d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt: {fileID: 1830523760}
+  _WordTextMesh: {fileID: 1830523760}
 --- !u!4 &912718110
 Transform:
   m_ObjectHideFlags: 0
@@ -1013,7 +1015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e79f41d5a4cec4c865d9c4cfa138d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lrController: {fileID: 833232786}
+  _lrController: {fileID: 833232786}
 --- !u!1 &958161697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,7 +1248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e79f41d5a4cec4c865d9c4cfa138d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lrController: {fileID: 833232786}
+  _lrController: {fileID: 833232786}
 --- !u!1 &1548009566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,7 +1458,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e79f41d5a4cec4c865d9c4cfa138d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lrController: {fileID: 833232786}
+  _lrController: {fileID: 833232786}
+--- !u!1 &1769406493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1769406494}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1769406494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769406493}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1811435604 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2222064761140897307, guid: 11ef1253e3382e3449de0915783e3682,

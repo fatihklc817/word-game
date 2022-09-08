@@ -5,23 +5,29 @@ using UnityEngine;
 public class touchControl : MonoBehaviour
 {
 
-    [SerializeField] private lrcontroller lrController;
+    [SerializeField] private lrcontroller _lrController;
 
 
     private void OnMouseDown()
     {
-        wordManager.currentWord += GetComponent<TextMesh>().text;
-        Debug.Log(wordManager.currentWord);
+        _lrController.IsInputActive = true;
+        wordManager.CurrentWord += GetComponent<TextMesh>().text;
+        _lrController.OnLineTouchWithLetter(GetComponent<Transform>());
+        Debug.Log(wordManager.CurrentWord);
     }
 
     private void OnMouseEnter()
     {
         //Debug.Log(GetComponent<Transform>().position);
-        lrController.onLineTouchWithLetter(GetComponent<Transform>());
-       // Debug.Log(GetComponent<TextMesh>().text);
-        wordManager.currentWord += GetComponent<TextMesh>().text;
         
+       // Debug.Log(GetComponent<TextMesh>().text);
+       if (_lrController.IsClicking)
+        {
 
+        wordManager.CurrentWord += GetComponent<TextMesh>().text;
+        _lrController.OnLineTouchWithLetter(GetComponent<Transform>());
+
+        }
     }
 
 

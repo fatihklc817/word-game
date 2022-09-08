@@ -5,22 +5,26 @@ using UnityEngine;
 public class wordManager : CustomBehaviour
 {
 
-    public static string currentWord;
-    [SerializeField] private TextMesh txt;
+    public static string CurrentWord;
 
-    private void Start()
-    {
-        txt.text = currentWord;
-    }
+    [SerializeField] private TextMesh _WordTextMesh;
 
-    // Start is called before the first frame update
+    //private void Start()
+    //{
+    //    txt.text = currentWord;
+    //}
+
+    
     public override void Initialize(GameManager gameManager)
     {
         base.Initialize(gameManager);
+        _WordTextMesh.text = CurrentWord;
+        
     }
 
-    public void upgradeText()
+    public void UpgradeText()
     {
-        txt.text = currentWord;
+        _WordTextMesh.text = CurrentWord;
     }
 }
+
