@@ -73,7 +73,7 @@ public class lrcontroller : MonoBehaviour
                 for (int i = 0; i < _lineRendererGoalpoints.Count; i++)
                 {
                     LineRenderer.SetPosition(i, _lineRendererGoalpoints[i]);
-                    LineRenderer.alignment = LineAlignment.Local;
+                    
                 }
             }
 
@@ -86,9 +86,11 @@ public class lrcontroller : MonoBehaviour
                 _lineRendererGoalpoints = new List<Vector3>();
                 _lineRendererGoalpoints.Add(new Vector3(0, -1.6f, 0));
                 _currentPointIndex = 0;
-                
+                wordManager.CheckWord();
+                wordManager.CurrentWord = null;
 
                 SetPoints();
+                
 
             }
 

@@ -14,7 +14,7 @@ public class touchControl : MonoBehaviour
         _lrController.IsInputActive = true;
         wordManager.CurrentWord += GetComponent<TextMesh>().text;
         _lrController.OnLineTouchWithLetter(GetComponent<Transform>());
-        Debug.Log(wordManager.CurrentWord);
+        
         IsLetterAdded = true;
     }
 
