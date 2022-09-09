@@ -332,6 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e79f41d5a4cec4c865d9c4cfa138d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsLetterAdded: 0
   _lrController: {fileID: 833232786}
 --- !u!1 &170076733
 GameObject:
@@ -734,7 +735,9 @@ MonoBehaviour:
   LineRenderer: {fileID: 833232787}
   IsClicking: 0
   IsInputActive: 0
+  IsBackToActiveLetter: 0
   wordManager: {fileID: 912718109}
+  GameManager: {fileID: 0}
 --- !u!120 &833232787
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -785,7 +788,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.20408058
+        value: 0.20269963
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -824,7 +827,7 @@ LineRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 15
+    numCornerVertices: 90
     numCapVertices: 0
     alignment: 1
     textureMode: 1
@@ -1015,6 +1018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e79f41d5a4cec4c865d9c4cfa138d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsLetterAdded: 0
   _lrController: {fileID: 833232786}
 --- !u!1 &958161697
 GameObject:
@@ -1248,6 +1252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e79f41d5a4cec4c865d9c4cfa138d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsLetterAdded: 0
   _lrController: {fileID: 833232786}
 --- !u!1 &1548009566
 GameObject:
@@ -1458,6 +1463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e79f41d5a4cec4c865d9c4cfa138d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsLetterAdded: 0
   _lrController: {fileID: 833232786}
 --- !u!1 &1769406493
 GameObject:
@@ -1759,6 +1765,11 @@ PrefabInstance:
       propertyPath: WordManager
       value: 
       objectReference: {fileID: 912718109}
+    - target: {fileID: 2222064762015884508, guid: 11ef1253e3382e3449de0915783e3682,
+        type: 3}
+      propertyPath: Lrcontroller
+      value: 
+      objectReference: {fileID: 833232786}
     - target: {fileID: 2222064762015884508, guid: 11ef1253e3382e3449de0915783e3682,
         type: 3}
       propertyPath: AnalyticsManager

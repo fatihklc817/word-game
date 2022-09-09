@@ -13,6 +13,8 @@ public class EventManager : CustomBehaviour
     public event Action OnLevelStarted;
     public event Action OnLevelRestarted;
 
+    public event Action OnLineReset;
+
 
     #region Initialize
 
@@ -64,4 +66,13 @@ public class EventManager : CustomBehaviour
     {
         OnAddDiamond?.Invoke(value, withTextAnim, withIconAnim);
     }
+
+
+    public void ResetLine()
+    {
+        OnLineReset?.Invoke();
+    }
+
+
+
 }

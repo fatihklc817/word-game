@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class touchControl : MonoBehaviour
 {
+    public bool IsLetterAdded;
 
     [SerializeField] private lrcontroller _lrController;
-
+    
 
     private void OnMouseDown()
     {
@@ -14,6 +15,14 @@ public class touchControl : MonoBehaviour
         wordManager.CurrentWord += GetComponent<TextMesh>().text;
         _lrController.OnLineTouchWithLetter(GetComponent<Transform>());
         Debug.Log(wordManager.CurrentWord);
+        IsLetterAdded = true;
+    }
+
+   
+
+    private void Start()
+    {
+        _lrController.GameManager.EventManager.OnLineReset += resetIsLetterAddedBool;
     }
 
     private void OnMouseEnter()
@@ -21,17 +30,35 @@ public class touchControl : MonoBehaviour
         //Debug.Log(GetComponent<Transform>().position);
         
        // Debug.Log(GetComponent<TextMesh>().text);
-       if (_lrController.IsClicking)
+       if (_lrController.IsClicking && !IsLetterAdded)
         {
 
         wordManager.CurrentWord += GetComponent<TextMesh>().text;
         _lrController.OnLineTouchWithLetter(GetComponent<Transform>());
+            IsLetterAdded = true;
+        }
 
+       if (IsLetterAdded)
+        {
+            _lrController.IsBackToActiveLetter = true;
+        }
+
+    }
+
+    private void OnMouseExit()
+    {
+        if (IsLetterAdded)
+        {
+           
+            _lrController.IsBackToActiveLetter = false;
         }
     }
 
 
-
+    private void resetIsLetterAddedBool()
+    {
+        IsLetterAdded = false;
+    }
 
 
 
