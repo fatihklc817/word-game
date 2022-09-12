@@ -25,6 +25,12 @@ public class touchControl : MonoBehaviour
         _lrController.GameManager.EventManager.OnLineReset += resetIsLetterAddedBool;
     }
 
+    private void OnDestroy()
+    {
+        _lrController.GameManager.EventManager.OnLineReset -= resetIsLetterAddedBool;
+    }
+
+
     private void OnMouseEnter()
     {
         //Debug.Log(GetComponent<Transform>().position);
