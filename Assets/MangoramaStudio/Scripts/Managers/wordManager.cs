@@ -8,41 +8,56 @@ public class wordManager : CustomBehaviour
 
     public static string CurrentWord;
 
-    [SerializeField] private TextMesh _WordTextMesh;
-    [SerializeField] private AnswerList _answerList;
+    public TextMesh WordTextMesh;
+    public AnswerList Answerlist;
+    private float flag = 0;
 
     //private void Start()
     //{
     //    txt.text = currentWord;
     //}
 
-    
+
     public override void Initialize(GameManager gameManager)
     {
         base.Initialize(gameManager);
-        _WordTextMesh.text = CurrentWord;
+        WordTextMesh.text = CurrentWord;
         
     }
 
     public void UpgradeText()
     {
-        _WordTextMesh.text = CurrentWord;
+        WordTextMesh.text = CurrentWord;
     }
 
+    [System.Obsolete]
     public void CheckWord()
     {
         
-        for (int i = 0; i < _answerList.Answers.Count; i++)
+        for (int i = 0; i < Answerlist.Answers.Count; i++)
         {
             
-            string indexWord = _answerList.Answers[i].GetComponent<TextMeshPro>().text;
+            string indexWord = Answerlist.Answers[i].GetComponent<TextMeshPro>().text;
            if( CurrentWord == indexWord)
             {
-                _answerList.Answers[i].SetActive(true);
+                if (!Answerlist.Answers[i].active)
+                {
+                Answerlist.Answers[i].SetActive(true);
                 Debug.Log("baþardýn");
+                flag++;
+                }
                 
             }
         }
+        
+        if (flag == Answerlist.Answers.Count)
+        {
+            Debug.Log("LEVEL FINISHED");
+            GameManager.EventManager.LevelCompleted();
+            flag = 0;
+        }
+
+       
     }
 
 }

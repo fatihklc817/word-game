@@ -7,9 +7,14 @@ public class LevelBehaviour : MonoBehaviour
 {
     public float WinPanelDelayTime => _winPanelDelayTime;
     public float LosePanelDelayTime => _losePanelDelayTime;
+    
+    public AnswerList Answerlist;
+    public TextMesh WorldTextMesh;
 
     [SerializeField] private float _winPanelDelayTime;
     [SerializeField] private float _losePanelDelayTime;
+    [SerializeField] private lrcontroller _lrController;
+
 
     private GameManager _gameManager;
 
@@ -17,6 +22,9 @@ public class LevelBehaviour : MonoBehaviour
 
     public void Initialize(GameManager gameManager, bool isRestart = false)
     {
+
+        _lrController.Initialize(gameManager);
+
         _gameManager = gameManager;
 
         if (!isRestart)
@@ -26,7 +34,8 @@ public class LevelBehaviour : MonoBehaviour
         else
         {
             _gameManager.EventManager.RestartGame();
-        }        
+        }   
+        
     }
 
     private void Update()

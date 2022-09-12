@@ -14,7 +14,8 @@ public class GameManager : CustomBehaviour
     public AnalyticsManager AnalyticsManager;
     public AdvertisementManager Advertisements;
     public wordManager WordManager;
-    public lrcontroller Lrcontroller;
+    // public lrcontroller Lrcontroller;
+    
     
 
     public InputController Inputs;
@@ -31,14 +32,15 @@ public class GameManager : CustomBehaviour
         AnalyticsManager.Initialize(this);
         //Advertisements.Initialize(this);
         WordManager.Initialize(this);
-        Lrcontroller.Initialize(this);
+     //   Lrcontroller.Initialize(this);
         
-
+       
         Inputs.Initialize(this);
     }
 
     private void Start()
     {
         EventManager.StartGame();
+        
     }
 }

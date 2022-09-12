@@ -26,6 +26,7 @@ public class lrcontroller : MonoBehaviour
     public void Initialize(GameManager gameManager)
     {
         GameManager = gameManager;
+        wordManager = gameManager.WordManager;
     }
 
     private void Start()

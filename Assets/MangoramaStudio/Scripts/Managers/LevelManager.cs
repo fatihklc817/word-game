@@ -10,6 +10,8 @@ public class LevelManager : CustomBehaviour
 
     [SerializeField] private int _startLevelCountAfterLoop;
 
+    [SerializeField] int playerLevelID=2;
+
     private LevelBehaviour _currentLevel;
 
     private int _totalLevelCount;
@@ -18,6 +20,8 @@ public class LevelManager : CustomBehaviour
 
     public override void Initialize(GameManager gameManager)
     {
+        PlayerData.CurrentLevelId = playerLevelID;
+
         base.Initialize(gameManager);
 
         GameManager.EventManager.OnStartGame += StartGame;
@@ -55,13 +59,17 @@ public class LevelManager : CustomBehaviour
 
         levelCount = lapValue >= 1 ? levelCount + _startLevelCountAfterLoop : levelCount;
 
-        //var levelBehaviourPrefab = _forcedPlayLevel == null ? Resources.Load<LevelBehaviour>("Levels/Level" + levelCount) : _forcedPlayLevel;
+        var levelBehaviourPrefab = _forcedPlayLevel == null ? Resources.Load<LevelBehaviour>("Levels/Level" + levelCount) : _forcedPlayLevel;
 
-        //var levelBehaviour = Instantiate(levelBehaviourPrefab);
+        var levelBehaviour = Instantiate(levelBehaviourPrefab);
 
-        //levelBehaviour.Initialize(GameManager, _currentLevel != null && _currentLevel.name == levelBehaviour.name);
+        levelBehaviour.Initialize(GameManager, _currentLevel != null && _currentLevel.name == levelBehaviour.name);
 
-        //_currentLevel = levelBehaviour;
+        GameManager.WordManager.Answerlist = levelBehaviour.Answerlist;
+        GameManager.WordManager.WordTextMesh = levelBehaviour.WorldTextMesh;
+        
+
+        _currentLevel = levelBehaviour;
     }
 
     private void ClearLevel()
